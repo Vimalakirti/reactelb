@@ -1,7 +1,10 @@
-const express = require('express');
+const express = require('express')
+const path = require('path')
 
-const PORT = process.env.HTTP_PORT || 4001;
+const PORT = process.env.HTTP_PORT || 8081;
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'client', 'build')))
 
 app.get('/', (req, res) => {
     res.send('hello world');
